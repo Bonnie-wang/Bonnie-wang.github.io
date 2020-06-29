@@ -142,14 +142,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -205,32 +205,39 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>        Nowadays, with the development of technology, using program to predict consumer behavior is really common in our daily life. For instance, most of online shopping can recommend consumers some products based on the items which they purchased before. In this project, the target is to predict the situation of consumer expense in google store by considering channel grouping, device category, operating system, browser, geoNetwork (continent, country and city), total hits, page views and visit number with Python(see picture 2 to picture11 ).</p>
-<p>        During the process of EDA, each column is divided into three situations for revenue: all expense, zero expense, non-zero expense. The ranking of mean expense is considered also for each column to predict the consumer groups. Barplot is used to clearly show the ranking of each type for the columns. For example,see picture 1, overall, most people go to google store from the channel group of organic search, social and direct; people with non-zero expense use referral, organic search and direct channel more common; people who do not spend money prefer organic search, social and direct channel.</p>
+                <h3><span id="abstract">ABSTRACT</span></h3>
+<p>        According to the daily consumption situation, the consumer group is divided into three categories. For different types of users, the search methods used when entering the Google Store are also different, and there are differences between different countries. The collected data were analyzed by Python regression, and the analysis results showed that the square root of the predicted revenue was about 1.4916, with an error within a reasonable range.</p>
+<p>        <strong>Keyword</strong>: Consuming behavior; consumption forecast; regression model</p>
+<h3><span id="1introduction">1.INTRODUCTION</span></h3>
+<p>        Nowadays, with the development of technology, using program to predict consumer behavior is really common in our daily life. For instance, most of online shopping can recommend consumers some products based on the items which they purchased before. In this project, the target is to predict the situation of consumer expense in google store by considering channel grouping, device category, operating system, browser, geoNetwork (continent, country and city), total hits, page views and visit number with Python(see figure 2 to figure11 ).</p>
+<h3><span id="2model">2.MODEL</span></h3>
+<p>        During the process of EDA, each column is divided into three situations for revenue: all expense, zero expense, non-zero expense. The ranking of mean expense is considered also for each column to predict the consumer groups. Barplot is used to clearly show the ranking of each type for the columns. For example,see figure 1, overall, most people go to google store from the channel group of organic search, social and direct; people with non-zero expense use referral, organic search and direct channel more common; people who do not spend money prefer organic search, social and direct channel.</p>
 <p><img src="/2020/01/11/Project-Summary/1.png" alt="1"></p>
-<center>Picture 1. barplot of channel Grouping</center>
-<p>        Analyzing the barplot below (picture 2 to picture 11), the high mean revenue is from direct channel, by desktop users in Nashville (city), Portugal (country), Americas (continent) who use Chrome OS and Firefox, with around 131 hits, around 87 page views and around 31 visitors; while the lowest mean revenue is from social channel, by tablet users in Switzerland (city), Oceania (country) who use window system on phone with Samsung Internet, with around 90 hits, around 61 page views and around 11 visitors.</p>
+<center>Figure 1. barplot of channel Grouping</center>
+<p>        Analyzing the barplot below (figure 2 to figure 11), the high mean revenue is from direct channel, by desktop users in Nashville (city), Portugal (country), Americas (continent) who use Chrome OS and Firefox, with around 131 hits, around 87 page views and around 31 visitors; while the lowest mean revenue is from social channel, by tablet users in Switzerland (city), Oceania (country) who use window system on phone with Samsung Internet, with around 90 hits, around 61 page views and around 11 visitors.</p>
 <p><img src="/2020/01/11/Project-Summary/2.png" alt="2"></p>
-<center>Picture 2. barplot of channel Grouping</center>
+<center>Figure 2. barplot of channel Grouping</center>
 <p><img src="/2020/01/11/Project-Summary/3.png" alt="3"></p>
-<center>Picture 3. barplot of device category</center>
+<center>Figure 3. barplot of device category</center>
 <p><img src="/2020/01/11/Project-Summary/4.png" alt="4"></p>
-<center>Picture 4. barplot of device operating system</center>
+<center>Figure 4. barplot of device operating system</center>
 <p><img src="/2020/01/11/Project-Summary/5.png" alt="5"></p>
-<center>Picture 5. barplot of device browser</center>
+<center>Figure 5. barplot of device browser</center>
 <p><img src="/2020/01/11/Project-Summary/6.png" alt="6"></p>
-<center>Picture 6. barplot of geoNetwork_continent</center>
+<center>Figure 6. barplot of geoNetwork_continent</center>
 <p><img src="/2020/01/11/Project-Summary/7.png" alt="7"></p>
-<center>Picture 7. barplot of geoNetwork_country</center>
+<center>Figure 7. barplot of geoNetwork_country</center>
 <p><img src="/2020/01/11/Project-Summary/8.png" alt="8"></p>
-<center>Picture 8. barplot of geoNetwork_city</center>
+<center>Figure 8. barplot of geoNetwork_city</center>
 <p><img src="/2020/01/11/Project-Summary/9.png" alt="9"></p>
-<center>Picture 9. barplot of totals hits</center>
+<center>Figure 9. barplot of totals hits</center>
 <p><img src="/2020/01/11/Project-Summary/10.png" alt="10"></p>
-<center>Picture 10. barplot of totals page views</center>
+<center>Figure 10. barplot of totals page views</center>
 <p><img src="/2020/01/11/Project-Summary/11.png" alt="11"></p>
-<center>Picture 11. barplot of visit number</center>
-<p>        Data analyzing is the most interesting part of this project, since I clearly understand the factors which influence consumer behavior in google store. It is amazing to consider the detail, such as the group channel and browser(see picture 2 and picture 5). After the basic analysis of explored data, regression tree is build based on the available data. There are two kinds of columns in this model: number columns and category columns. The category columns need to be quantized into value. This is also the biggest challenge part throughout the whole project, since it is hard to decide the weight of category columns. The function of astype solves this problem. Number columns and category columns are trained as x-value, while the total transaction revenue is trained as y-value(see the fourth barplot in each picture). The another part of available dataset is used to verify the result of prediction. For this model, the square root for predicted revenue is around 1.4916 which is in the reasonable range. This result indicates the accuracy of the model which can be used for testing the prediction. Predicted log revenue represents the error for this model. In this case, the systematic error is acceptable as most of the predicted log revenue is 0.</p>
+<center>Figure 11. barplot of visit number</center>
+<h3><span id="3conclusion">3.CONCLUSION</span></h3>
+<p>        Data analyzing is the most interesting part of this project, since I clearly understand the factors which influence consumer behavior in google store. It is amazing to consider the detail, such as the group channel and browser(see figure 2 and figure 5). After the basic analysis of explored data, regression tree is build based on the available data. There are two kinds of columns in this model: number columns and category columns. The category columns need to be quantized into value. This is also the biggest challenge part throughout the whole project, since it is hard to decide the weight of category columns. The function of astype solves this problem. Number columns and category columns are trained as x-value, while the total transaction revenue is trained as y-value(see the fourth barplot in each figure). The another part of available dataset is used to verify the result of prediction. For this model, the square root for predicted revenue is around 1.4916 which is in the reasonable range. This result indicates the accuracy of the model which can be used for testing the prediction. Predicted log revenue represents the error for this model. In this case, the systematic error is acceptable as most of the predicted log revenue is 0.</p>
+<h3><span id="4summary">4.SUMMARY</span></h3>
 <p>        From this project, I have not only learnt the skills of using python, but also understood deeper how the prediction of consumer behavior worked. During the age of big data, this way is common for online store to lock their target consumer.</p>
 
                 
@@ -238,10 +245,6 @@
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
-                    
-                        <li class="previous">
-                            <a href="/2020/06/29/Project-Summary-2/" data-toggle="tooltip" data-placement="top" title="Project Summary 2">&larr; Previous Post</a>
-                        </li>
                     
                     
                 </ul>
@@ -271,7 +274,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="nav">none</ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">ABSTRACT</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">1.INTRODUCTION</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">2.MODEL</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">3.CONCLUSION</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">4.SUMMARY</span></a></li></ol>
         
         </div>
       </aside>
